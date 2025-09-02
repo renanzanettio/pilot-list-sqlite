@@ -1,4 +1,4 @@
-.loginContainer {
+.signupContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,23 +7,23 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.loginBox {
+.signupBox {
   background: #fff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(243, 166, 166, 0.2);
   width: 100%;
-  max-width: 360px;
+  max-width: 400px;
   text-align: center;
 }
 
-.loginBox h1 {
+.signupBox h1 {
   font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
 
-.loginBox label {
+.signupBox label {
   display: block;
   text-align: left;
   margin: 12px 0 6px;
@@ -32,7 +32,7 @@
   color: #333;
 }
 
-.loginBox input {
+.signupBox input {
   width: 100%;
   padding: 10px;
   border: 1px solid #aaa;
@@ -42,12 +42,12 @@
   transition: border 0.3s ease;
 }
 
-.loginBox input:focus {
+.signupBox input:focus {
   border-color: #7a7a7a;
   box-shadow: 0 0 2px rgba(32, 32, 32, 0.5);
 }
 
-.loginBox button {
+.signupBox button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
@@ -61,12 +61,12 @@
   transition: background 0.3s ease;
 }
 
-.loginBox button:hover {
+.signupBox button:hover {
   background: #837e7e;
 }
 
-/* Estilo para o botão de cadastro */
-.signupButton {
+/* Botão para voltar ao login */
+.loginRedirect {
   margin-top: 15px;
   width: 100%;
   padding: 10px;
@@ -78,15 +78,15 @@
   transition: color 0.3s ease;
 }
 
-.signupButton span {
+.loginRedirect span {
   font-weight: bold;
   color: #333;
 }
 
-.signupButton:hover {
+.loginRedirect:hover {
   color: #111;
 }
 
-.signupButton:hover span {
+.loginRedirect:hover span {
   text-decoration: underline;
 }

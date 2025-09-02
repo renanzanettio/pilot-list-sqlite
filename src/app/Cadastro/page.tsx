@@ -2,24 +2,25 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "../page.module.css"; // reutiliza o mesmo CSS
 
-export default function Login() {
+export default function Cadastro() {
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleCadastro = async (e: React.FormEvent) => {
   e.preventDefault();
-  const res = await fetch("/api/login", {
+  const res = await fetch("/api/cadastro", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, senha }),
+    body: JSON.stringify({ nome, email, senha }),
   });
   const data = await res.json();
   if (data.success) {
-    console.log("Login feito!", data.user);
-    // Redirecionar para dashboard
+    alert("Cadastro feito com sucesso!");
+    router.push("/");
   } else {
     alert(data.error);
   }
@@ -29,8 +30,16 @@ export default function Login() {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
-        <h1>Login</h1>
-        <form onSubmit={handleLogin}>
+        <h1>Cadastro</h1>
+        <form onSubmit={handleCadastro}>
+          <label>Nome</label>
+          <input
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+
           <label>Email</label>
           <input
             type="email"
@@ -47,14 +56,14 @@ export default function Login() {
             required
           />
 
-          <button type="submit">Entrar</button>
+          <button type="submit">Cadastrar</button>
         </form>
 
         <button
           className={styles.signupButton}
-          onClick={() => router.push("/Cadastro")}
+          onClick={() => router.push("/")}
         >
-          Ainda não tem uma conta? <span>Cadastre-se</span>
+          Já tem conta? <span>Faça login</span>
         </button>
       </div>
     </div>
